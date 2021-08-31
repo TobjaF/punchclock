@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import org.glassfish.jersey.jaxb.internal.XmlJaxbElementProvider;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,6 +25,10 @@ public class Entry {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Column(nullable = false)
     private LocalDateTime checkOut;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private ApplicationUser user;
 
     public Long getId() {
         return id;

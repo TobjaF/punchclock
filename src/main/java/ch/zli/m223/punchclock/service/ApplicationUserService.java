@@ -24,6 +24,7 @@ public class ApplicationUserService implements UserDetailsService {
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);
         }
+        //prüfen, ob Name schon vorhanden
         return new User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
     }
 }
