@@ -56,8 +56,11 @@ const renderEntries = () => {
     });
 };
 
+
+
 document.addEventListener('DOMContentLoaded', function(){
     const createEntryForm = document.querySelector('#createEntryForm');
     createEntryForm.addEventListener('submit', createEntry);
     indexEntries();
+    test_fetch();
 });
