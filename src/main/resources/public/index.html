@@ -19,8 +19,8 @@
             <label for="checkOut">Check out</label>
             <input type="date" name="checkOutDate" id="checkOut" required>
             <input type="time" name="checkOutTime" required>
-            <label for="userselect">Choose a User</label>
-            <select name="user" id="userselect">
+            <label for="userSelectEntry">Choose a User</label>
+            <select name="user" id="userSelectEntry">
                 <!--option value="volvo">Volvo</option-->
             </select>
             <input type="submit" value="Save" />
@@ -46,8 +46,8 @@
 
     <h1> Manage Project-Entries </h1>
     <form id="createProjectForm">
-        <label for="projectname">Project Name</label>
-        <input type="text" name="projectname" id="projectname" required>
+        <label for="identifier">Project Name</label>
+        <input type="text" name="identifier" id="identifier" required>
         <input type="submit" value="Save" />
     </form>
 
@@ -69,18 +69,18 @@
 
     <h1> Manage Rapport-Entries </h1>
     <form id="createRapportForm">
-        <label for="project">Project </label>
-        <select name="project" id="project">
+        <label for="projectSelectRapport">Project </label>
+        <select name="project" id="projectSelectRapport">
             <!--option value="volvo">Volvo</option-->
         </select>
 
-        <label for="rapportUserselect">Choose a User</label>
-        <select name="user" id="rapportUserselect">
+        <label for="userSelectRapport">Choose a User</label>
+        <select name="user" id="userSelectRapport">
             <!--option value="volvo">Volvo</option-->
         </select>
 
-        <label for="workhours">Workload in Hours </label>
-        <input type="number" name="workhours" id="workhours">
+        <label for="workload">Workload in Hours </label>
+        <input type="number" name="workload" id="workload">
 
         <input type="submit" value="Save" />
     </form>
@@ -95,7 +95,7 @@
             <th>Workload</th>
         </tr>
         </thead>
-        <tbody id="rapportDisply">
+        <tbody id="rapportDisplay">
         <tr>
             <td colspan="4">Loading...</td>
         </tr>
