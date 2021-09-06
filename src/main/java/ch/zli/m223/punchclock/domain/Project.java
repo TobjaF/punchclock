@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -17,6 +18,9 @@ public class Project {
 
     @Column(nullable = false)
     private String identifier;
+
+    @OneToMany(mappedBy = "project")
+    private List<Rapport> rapportList;
 
     public Long getId() {
         return id;

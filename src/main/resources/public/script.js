@@ -51,6 +51,7 @@ const createProject = (project) => {
     }).then((result) => {
         result.json().then((project) => {
             projects.push(project);
+            indexProjects();
             renderProjects();
         });
     });
@@ -150,6 +151,7 @@ const updateProject = (project) => {
     }).then((result) => {
         result.json().then((project) => {
             projects = projects.map((e) => e.id === project.id ? project : e);
+            indexProjects();
             renderProjects();
         });
     });
@@ -429,7 +431,7 @@ const populateProjectsDropdown = () => {
     for (var i = 0; i < projects.length; i++) {
         var optionRapport = document.createElement("option");
         optionRapport.value = projects[i]['id'];
-        optionRapport.text = projects[i]['username'];
+        optionRapport.text = projects[i]['identifier'];
         projectsDropdownRapport.appendChild(optionRapport);
     }
 }

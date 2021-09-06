@@ -14,6 +14,9 @@ public class ApplicationUser {
     @OneToMany(mappedBy = "user")
     private List<Entry> entryList;
 
+    @OneToMany(mappedBy = "user")
+    private List<Rapport> rapportList;
+
     public long getId() {
         return id;
     }
