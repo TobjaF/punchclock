@@ -17,19 +17,24 @@
             <label for="checkOut">Check out</label>
             <input type="date" name="checkOutDate" id="checkOut" required>
             <input type="time" name="checkOutTime" required>
+            <label for="userselect">Choose a User</label>
+            <select name="user" id="userselect">
+                <!--option value="volvo">Volvo</option-->
+            </select>
             <input type="submit" value="Save" />
         </form>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>User</th>
                     <th>Check in</th>
                     <th>Check out</th>
                 </tr>
             </thead>
             <tbody id="entryDisplay">
                 <tr>
-                    <td colspan="3">Loading...</td>
+                    <td colspan="4">Loading...</td>
                 </tr>
             </tbody>
         </table>

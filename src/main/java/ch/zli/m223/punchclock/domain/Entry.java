@@ -30,6 +30,10 @@ public class Entry {
     @JoinColumn(name = "USER_ID")
     private ApplicationUser user;
 
+    public void setUser (ApplicationUser user) { this.user = user;}
+
+    public ApplicationUser getUser(){ return user;}
+
     public Long getId() {
         return id;
     }

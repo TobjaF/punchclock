@@ -1,4 +1,4 @@
-input {
+input, select {
     display: block;
     width: 20rem;
     box-sizing: border-box;

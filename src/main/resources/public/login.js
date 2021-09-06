@@ -62,7 +62,7 @@ const signup = (e) => {
 const request_index = () => {
     if (localStorage.getItem('bearer') === null) return ;
     let token = localStorage.getItem('bearer');
-    window.location.href = `${URL}/index.html?access_token=${token}`
+    window.location.href = `${URL}/index.html`
     /*
     fetch(`${URL}/index.html`,{method: 'GET', headers: {'Authorization': token}})
         .then( (response) => {
