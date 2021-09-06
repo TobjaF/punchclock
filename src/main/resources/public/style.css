@@ -11,3 +11,8 @@ input[type='submit'], table {
 table {
     width: 40rem;
 }
+
+#logout-button{
+    position: absolute;
+    right: 50px;
+}

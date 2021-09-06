@@ -60,20 +60,9 @@ const signup = (e) => {
 }
 
 const request_index = () => {
-    if (localStorage.getItem('bearer') === null) return ;
+    if (localStorage.getItem('bearer') === null) return;
     let token = localStorage.getItem('bearer');
     window.location.href = `${URL}/index.html`
-    /*
-    fetch(`${URL}/index.html`,{method: 'GET', headers: {'Authorization': token}})
-        .then( (response) => {
-            return response.text();
-        }).then( (htmldoc) => {
-            document.innerhtml = htmldoc;
-    } )
-    */
-
-
-
 }
 
 let resp = {};
@@ -92,21 +81,25 @@ const login = (e) => {
         },
         body: JSON.stringify(user)
     }).then((result) => {
-            resp = result;
-            console.log(result);
+        if (result.status === 200){
             bearer_token = result.headers.get('authorization');
             localStorage.setItem('bearer', bearer_token);
-            console.log(bearer_token);
             request_index();
+        }
+        else {
+           alert("Ungültige Credentials");
+        }
     });
 
 }
 
 document.addEventListener('DOMContentLoaded', function(){
+    request_index();
     const signupform = document.querySelector('#signupform');
     signupform.addEventListener('submit', signup);
 
     const loginform = document.querySelector('#loginform');
     loginform.addEventListener('submit', login);
+
     //test_fetch();
 });

@@ -94,8 +94,9 @@ const resetForm = () => {
     currentEntry = null;
 }
 
+//"3" = 3 --> typen können abweichen bei ==
 const getUserById = (id) => {
-    return users.find((user) => {return user.id === id});
+    return users.find((user) => {return user.id == id});
 }
 
 const saveForm = (e) => {
@@ -127,6 +128,8 @@ const editEntry = (entry) => {
     checkOutDateField.value = entry.checkOut.split('T')[0];
     const checkOutTimeField = entryForm.querySelector('[name="checkOutTime"]');
     checkOutTimeField.value = entry.checkOut.split('T')[1].slice(0, -3);
+    const userSelectField = entryForm.querySelector('[name="user"]');
+    userSelectField.value = entry.user.id;
 }
 
 const createActions = (entry) => {
@@ -206,9 +209,20 @@ const renderEntries = () => {
     });
 };
 
+const checkAuthorized = () => {
+    if (localStorage.getItem('bearer') === null) {
+        window.location.href = `${URL}/login.html`
+    }
 
+}
+
+const logout = () => {
+    localStorage.removeItem('bearer');
+    checkAuthorized();
+}
 
 document.addEventListener('DOMContentLoaded', function(){
+    checkAuthorized();
     //const createEntryForm = document.querySelector('#createEntryForm');
     //createEntryForm.addEventListener('submit', createEntry);
 
@@ -217,8 +231,8 @@ document.addEventListener('DOMContentLoaded', function(){
     entryForm.addEventListener('reset', resetForm);
     indexEntries();
 
-    console.log('Bearer: ');
-    console.log(localStorage.getItem('bearer'));
+    const logoutButton = document.querySelector('#logout-button');
+    logoutButton.addEventListener('click', logout);
 
     indexUsers();
     populateUserDropdown();
