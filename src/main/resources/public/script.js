@@ -72,10 +72,25 @@ const createRapport = (rapport) => {
     });
 };
 
+
 const testentry = {
     "checkIn": "2021-09-07T09:16:00.000Z",
     "checkOut": "2021-09-17T12:13:00.000Z",
     "user": {
+        "id": "1"
+    }
+}
+
+const testproject = {
+    "identifier" : "devops"
+}
+
+const testrapport = {
+    "workload": "3",
+    "user": {
+        "id": "1"
+    },
+    "project": {
         "id": "1"
     }
 }
@@ -238,7 +253,7 @@ const saveRapportForm = (e) => {
     if (rapportMode === 'create') {
         createRapport(rapport);
     } else {
-        rapport.id = currentEntry.id;
+        rapport.id = currentRapport.id;
         updateRapport(rapport);
     }
     resetRapportForm();
@@ -514,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const rapportForm = document.querySelector('#createRapportForm');
     rapportForm.addEventListener('submit', saveRapportForm);
-    rapportForm.addEventListener('reset', saveRapportForm);
+    rapportForm.addEventListener('reset', resetRapportForm);
     indexRapports();
 
 

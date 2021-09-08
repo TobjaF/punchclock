@@ -14,7 +14,7 @@ import java.util.List;
 public class RapportController {
     private RapportService rapportService;
 
-    public RapportController(RapportService RapportService) {
+    public RapportController(RapportService rapportService) {
         this.rapportService = rapportService;
     }
 
