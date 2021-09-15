@@ -4,6 +4,11 @@ input, select {
     box-sizing: border-box;
 }
 
+form {
+    max-width: 1000px;
+    margin: auto;
+}
+
 input[type='submit'], table {
     margin-top: 1rem;
 }

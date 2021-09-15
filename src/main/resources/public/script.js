@@ -28,7 +28,7 @@ const getHeaders = () => {
 // API Requests
 const createEntry = (entry) => {
     let headers = getHeaders();
-    headers['Content-Type'] =  'application/json';
+    headers['Content-Type'] = 'application/json';
     fetch(`${URL}/entries`, {
         method: 'POST',
         headers: headers,
@@ -43,7 +43,7 @@ const createEntry = (entry) => {
 
 const createProject = (project) => {
     let headers = getHeaders();
-    headers['Content-Type'] =  'application/json';
+    headers['Content-Type'] = 'application/json';
     fetch(`${URL}/projects`, {
         method: 'POST',
         headers: headers,
@@ -59,7 +59,7 @@ const createProject = (project) => {
 
 const createRapport = (rapport) => {
     let headers = getHeaders();
-    headers['Content-Type'] =  'application/json';
+    headers['Content-Type'] = 'application/json';
     fetch(`${URL}/rapports`, {
         method: 'POST',
         headers: headers,
@@ -82,7 +82,7 @@ const testentry = {
 }
 
 const testproject = {
-    "identifier" : "devops"
+    "identifier": "devops"
 }
 
 const testrapport = {
@@ -100,14 +100,14 @@ const testentryresp = {
     "checkIn": "2021-09-07T09:16:00",
     "checkOut": "2021-09-17T12:13:00",
     "user": {
-    "id": 1,
+        "id": 1,
         "username": null,
         "password": null
-}
+    }
 }
 
 const testuser = {
-    "username":"testuser",
+    "username": "testuser",
     "password": "password"
 }
 
@@ -211,15 +211,15 @@ const resetRapportForm = () => {
 
 
 const getUserById = (id) => {
-    return users.find((user) => {return user.id == id});
+    return users.find((user) => { return user.id == id });
 }
 
 const getProjectById = (id) => {
-    return projects.find((project) => {return project.id == id});
+    return projects.find((project) => { return project.id == id });
 }
 
 const getRapportById = (id) => {
-    return rapports.find((rapport) => {return rapport.id == id});
+    return rapports.find((rapport) => { return rapport.id == id });
 }
 
 
@@ -413,15 +413,15 @@ const indexUsers = () => {
 const populateUserDropdown = () => {
     const usersDropdownEntry = document.querySelector('#userSelectEntry');
     const usersDropdownRapport = document.querySelector('#userSelectRapport');
-    //Create and append the options
-    for (var i = usersDropdownEntry.options.length-1; i>=0; i--){
+
+    for (var i = usersDropdownEntry.options.length - 1; i >= 0; i--) {
         usersDropdownEntry.remove(i);
     }
 
-    for (var i = usersDropdownRapport.options.length-1; i>=0; i--){
+    for (var i = usersDropdownRapport.options.length - 1; i >= 0; i--) {
         usersDropdownRapport.remove(i);
     }
-
+    //Create and append the options
     for (var i = 0; i < users.length; i++) {
         var optionEntry = document.createElement("option");
         optionEntry.value = users[i]['id'];
@@ -438,7 +438,8 @@ const populateUserDropdown = () => {
 const populateProjectsDropdown = () => {
     const projectsDropdownRapport = document.querySelector('#projectSelectRapport');
 
-    for (var i = projectsDropdownRapport.options.length-1; i>=0; i--){
+    //remove all options
+    for (var i = projectsDropdownRapport.options.length - 1; i >= 0; i--) {
         projectsDropdownRapport.remove(i);
     }
 
@@ -512,8 +513,8 @@ const logout = () => {
     checkAuthorized();
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-    checkAuthorized();
+document.addEventListener('DOMContentLoaded', function () {
+    //checkAuthorized();
     //const createEntryForm = document.querySelector('#createEntryForm');
     //createEntryForm.addEventListener('submit', createEntry);
 
