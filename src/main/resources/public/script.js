@@ -557,7 +557,7 @@ function resetTimer() {
 
     /* Set a new interval */
     timer =
-        setInterval(startIdleTimer, 1000);
+        setInterval(startIdleTimer, 3000);
 }
 
 // Define the events that
@@ -569,6 +569,10 @@ window.ontouchstart = resetTimer;
 window.onclick = resetTimer;
 window.onkeypress = resetTimer;
 
+function showSessionTimeoutMsg() {
+    logout();
+    alert("your session has been expired");
+}
 function startIdleTimer() {
 
     /* Increment the
@@ -579,8 +583,7 @@ function startIdleTimer() {
         to the new value */
     document.querySelector(".secs")
         .textContent = currSeconds;
+    showSessionTimeoutMsg();
 
-    /* Display the timer text */
-    document.querySelector(".timertext")
-        .style.display = 'block';
 }
+
