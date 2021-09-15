@@ -4,20 +4,28 @@ input, select {
     box-sizing: border-box;
 }
 
-form {
-    max-width: 1000px;
+.card {
+    max-width: 800px;
     margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
 }
 
-input[type='submit'], table {
+
+
+.table{
+    max-width: 600px;
+}
+
+input[type='submit'] {
     margin-top: 1rem;
 }
 
-table {
-    width: 40rem;
-}
+
 
 #logout-button{
     position: absolute;
-    right: 50px;
+    right: 10px;
+    top: 10px;
 }
