@@ -101,8 +101,8 @@ const testentryresp = {
     "checkOut": "2021-09-17T12:13:00",
     "user": {
         "id": 1,
-        "username": null,
-        "password": null
+        "username": "max",
+        "password": "muster"
     }
 }
 
@@ -110,6 +110,53 @@ const testuser = {
     "username": "testuser",
     "password": "password"
 }
+
+const fillsampledata = () => {
+    users.push({
+        "id": users.length + 1,
+        "username": "max",
+        "password": "muster"
+    });
+
+    projects.push({
+        "id": projects.length + 1,
+        "identifier": "devops"
+    });
+
+    entries.push({
+        "id": entries.length + 1,
+        "checkIn": "2021-09-07T09:16:00",
+        "checkOut": "2021-09-17T12:13:00",
+        "user": {
+            "id": 1,
+            "username": "max",
+            "password": "muster"
+        }
+    });
+
+    rapports.push({
+        "id": rapports.length + 1,
+        "workload": "3",
+        "user": {
+            "id": 1,
+            "username": "max",
+            "password": "muster"
+        },
+        "project": {
+            "id": "1",
+            "identifier": "devops"
+        }
+    });
+
+    populateProjectsDropdown();
+    populateUserDropdown();
+    renderProjects();
+    renderEntries();
+    renderRapports();
+
+}
+
+
 
 const deleteEntry = (id) => {
     let headers = getHeaders();
@@ -316,10 +363,12 @@ const createEntryActions = (entry) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteEntry(entry.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editEntry(entry));
     cell.appendChild(editButton);
     return cell;
@@ -330,10 +379,12 @@ const createRapportActions = (rapport) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteRapport(rapport.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editRapport(rapport));
     cell.appendChild(editButton);
     return cell;
@@ -343,10 +394,12 @@ const createProjectActions = (project) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteProject(project.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editProject(project));
     cell.appendChild(editButton);
     return cell;
@@ -454,6 +507,7 @@ const populateProjectsDropdown = () => {
 
 const createCell = (text) => {
     const cell = document.createElement('td');
+    cell.classList = "align-middle";
     cell.innerText = text;
     return cell;
 };
@@ -540,6 +594,10 @@ document.addEventListener('DOMContentLoaded', function () {
     indexUsers();
     populateUserDropdown();
     populateProjectsDropdown();
+
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar-example2'
+    })
 });
 
 let timer, currSeconds = 0;

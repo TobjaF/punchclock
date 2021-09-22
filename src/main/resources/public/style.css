@@ -12,24 +12,21 @@ input, select {
 
 }
 
-body {
-    margin-left: 10%;
-    margin-right: 10%;
-}
 
-
-.table{
-    max-width: 600px;
-}
 
 input[type='submit'] {
     margin-top: 1rem;
 }
 
+body {
+    position: relative;
+  }
 
+table button {
+    margin: 5px;
 
-#logout-button{
-    position: absolute;
-    right: 10px;
-    top: 10px;
+}
+
+td {
+    vertical-align: middle;
 }
