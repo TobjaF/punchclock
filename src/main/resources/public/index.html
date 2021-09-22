@@ -26,10 +26,10 @@
 
         </div>
         <label for="checkIn">Check in</label>
-        <input type="date" name="checkInDate" id="checkIn" onclick="date_picker()" class="form-control" required>
-        <input type="time" name="checkInTime" class="form-control" required>
+        <input type="date" name="checkInDate" id="checkIn" onchange="date_picker_checkIn()" class="form-control" required>
+        <input type="time" name="checkInTime" onchange="time_calculate()"class="form-control" required>
         <label for="checkOut">Check out</label>
-        <input type="date" name="checkOutDate" id="checkOut" class="form-control" required>
+        <input type="date" name="checkOutDate" id="checkOut" onchange="date_picker_checkOut()" class="form-control" required>
         <input type="time" name="checkOutTime" class="form-control" required>
         <label for="userSelectEntry">Choose a User</label>
         <select name="user" id="userSelectEntry" class="form-control">

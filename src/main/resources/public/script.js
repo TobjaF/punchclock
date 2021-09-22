@@ -17,6 +17,18 @@ const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
 };
 
+function date_picker_checkIn() {
+    document.getElementById("checkOut").value = document.getElementById("checkIn").value;
+}
+
+function date_picker_checkOut() {
+    document.getElementById("checkIn").value = document.getElementById("checkOut").value;
+}
+
+function time_calculate() {
+
+}
+/*
 function date_picker() {
     var dtToday = new Date();
 
@@ -34,6 +46,7 @@ function date_picker() {
     // var maxDate = dtToday.toISOString().substr(0, 10);
     $('#checkIn').attr('min', maxDate);
 }
+*/
 
 const getHeaders = () => {
     let token = localStorage.getItem('bearer');
