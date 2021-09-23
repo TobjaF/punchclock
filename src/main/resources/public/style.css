@@ -7,20 +7,30 @@ input, select {
 .card {
     max-width: 800px;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
 
 }
 
-
+.spy-top-padding{
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 input[type='submit'] {
     margin-top: 1rem;
 }
 
+form .btn {
+    max-width: 50%;
+}
+
 body {
+    /*position relative Für Bootstrap Scrollspy*/
     position: relative;
+    margin-bottom: 400px;
   }
+
+  .top-buffer { margin-top:10px; }
 
 table button {
     margin: 5px;

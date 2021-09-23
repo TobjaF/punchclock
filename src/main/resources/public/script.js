@@ -13,6 +13,8 @@ let currentEntry;
 let currentProject;
 let currentRapport;
 
+//let scrollSpy;
+
 const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
 };
@@ -524,6 +526,7 @@ const renderEntries = () => {
         row.appendChild(createEntryActions(entry));
         display.appendChild(row);
     });
+    refreshScrollSpy();
 };
 
 
@@ -539,6 +542,7 @@ const renderRapports = () => {
         row.appendChild(createRapportActions(rapport));
         display.appendChild(row);
     });
+    //refreshScrollSpy();
 };
 
 const renderProjects = () => {
@@ -551,9 +555,17 @@ const renderProjects = () => {
         row.appendChild(createProjectActions(project));
         display.appendChild(row);
     });
+    //refreshScrollSpy();
 };
 
-
+const refreshScrollSpy = () => {
+    /* https://getbootstrap.com/docs/5.0/components/scrollspy/ */
+    var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+    dataSpyList.forEach(function (dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl)
+            .refresh()
+    })
+}
 
 const checkAuthorized = () => {
     if (localStorage.getItem('bearer') === null) {
@@ -571,6 +583,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //checkAuthorized();
     //const createEntryForm = document.querySelector('#createEntryForm');
     //createEntryForm.addEventListener('submit', createEntry);
+
+
+    scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar-example2'
+    });
+
 
     const entryForm = document.querySelector('#createEntryForm');
     entryForm.addEventListener('submit', saveEntryForm);
@@ -595,9 +613,18 @@ document.addEventListener('DOMContentLoaded', function () {
     populateUserDropdown();
     populateProjectsDropdown();
 
-    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-        target: '#navbar-example2'
-    })
+
+    if (location.port === '5500') {
+        for (let index = 0; index < 10; index++) {
+            //fillsampledata();
+        }
+
+    }
+
+
+
+
+
 });
 
 let timer, currSeconds = 0;

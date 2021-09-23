@@ -14,7 +14,7 @@
     <script src="script.js" type="application/javascript"></script>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="" class="scrollspy-example" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 
     <nav id="navbar-example2" class="navbar navbar-light bg-light px-3 fixed-top">
         <a class="navbar-brand" href="#">Navigation</a>
@@ -35,20 +35,18 @@
         </ul>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-xl-6">
-                <div class="card" id="scrollspyHeading1">
+            <div class="col-xl-6 spy-top-padding" id="scrollspyHeading1">
+                <div class="card">
                     <div class="card-header">
-                        <a id="punchclock">
-                            <h1 class="mb-3"> Manage Punchclock-Entries </h1>
-                        </a>
+                        <h1 class="mb-3"> Manage Punchclock-Entries </h1>
                     </div>
 
                     <div class="card-footer">
-                        <form id="createEntryForm">
+                        <form id="createEntryForm" class="container">
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-2" for="checkIn">Check in</label>
                                 <div class="col-sm-5">
                                     <input type="date" name="checkInDate" id="checkIn" class="form-control" required>
@@ -58,7 +56,7 @@
                                 </div>
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="checkOut">Check out</label>
                                 <div class="col-sm-4">
                                     <input type="date" name="checkOutDate" id="checkOut" class="form-control" required>
@@ -68,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="userSelectEntry">Choose a User</label>
                                 <div class="col-sm-9">
                                     <select name="user" id="userSelectEntry" class="form-control">
@@ -77,7 +75,7 @@
                                 </div>
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <div class="col-sm-12">
                                     <input class=" btn btn-primary" type="submit" value="Save" />
                                 </div>
@@ -86,7 +84,7 @@
                         </form>
 
 
-                        <table class="table">
+                        <table class="table top-buffer">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -106,63 +104,61 @@
 
                 </div>
             </div>
-            <div class="col-xl-6">
-                <a id="project">
-                    <div class="card" id="scrollspyHeading2">
-                        <div class="card-header">
+            <div class="col-xl-6 spy-top-padding" id="scrollspyHeading2">
+                <div class="card">
+                    <div class="card-header">
 
-                            <h1> Manage Project-Entries </h1>
+                        <h1> Manage Project-Entries </h1>
 
-
-                        </div>
-                        <div class="card-footer">
-
-                            <form id="createProjectForm">
-                                <div class="input-group row">
-                                    <label class="col-form-label col-sm-3" for="identifier">Project Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="identifier" id="identifier" required>
-                                    </div>
-                                </div>
-                                <div class="input-group row">
-                                    <div class="col-sm-12">
-                                        <input class="btn btn-primary" type="submit" value="Save" />
-                                    </div>
-                                </div>
-                            </form>
-
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Project Name</th>
-                                        <th></th>
-                                    </tr>
-
-                                </thead>
-                                <tbody id="projectDisplay">
-                                    <tr>
-                                        <td colspan="2">Loading...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
 
                     </div>
-                </a>
+                    <div class="card-footer">
+
+                        <form id="createProjectForm">
+                            <div class="input-group row top-buffer">
+                                <label class="col-form-label col-sm-3" for="identifier">Project Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="identifier" id="identifier" required>
+                                </div>
+                            </div>
+                            <div class="input-group row top-buffer">
+                                <div class="col-sm-12">
+                                    <input class="btn btn-primary" type="submit" value="Save" />
+                                </div>
+                            </div>
+                        </form>
+
+                        <table class="table top-buffer">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Project Name</th>
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody id="projectDisplay">
+                                <tr>
+                                    <td colspan="2">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xl-6">
-                <div class="card" id="scrollspyHeading3">
+            <div class="col-xl-6 spy-top-padding" id="scrollspyHeading3">
+                <div class="card">
                     <div class="card-header">
                         <h1> Manage Rapport-Entries </h1>
                     </div>
                     <div class="card-footer">
                         <form id="createRapportForm">
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-2" for="projectSelectRapport">Project </label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="project" id="projectSelectRapport">
@@ -171,7 +167,7 @@
                                 </div>
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="userSelectRapport">Choose a User</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="user" id="userSelectRapport">
@@ -181,14 +177,14 @@
 
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-4" for="workload">Workload in Hours </label>
                                 <div class="col-sm-8">
                                     <input class="form-control" type="number" name="workload" id="workload">
                                 </div>
                             </div>
 
-                            <div class="input-group row">
+                            <div class="input-group row top-buffer">
                                 <div class="col-sm-12">
                                     <input class="btn btn-primary" type="submit" value="Save" />
                                 </div>
@@ -197,7 +193,7 @@
                         </form>
 
 
-                        <table class="table">
+                        <table class="table top-buffer">
                             <thead>
                                 <tr>
                                     <th>ID</th>
