@@ -12,30 +12,42 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="script.js" type="application/javascript"></script>
+    <link rel="icon" href="pics/Tiny-ERP.png" type="image/png">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 
-    <nav id="navbar-example2" class="navbar navbar-light bg-light px-3 fixed-top">
-        <a class="navbar-brand" href="#">Navigation</a>
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading1">Punchclock</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading2">Projects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading3">Rapports</a>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-secondary" id="logout-button"> Logout </button>
+    <nav id="navbar-example2" class="navbar navbar-expand-sm navbar-light bg-light px-3 fixed-top">
+        <a class="navbar-brand" href="#">
+            <img class="tiny-erp-logo" src="/pics/Tiny-ERP.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar1">
+            <ul class="navbar-nav nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading1">Punchclock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading2">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading3">Rapports</a>
+                </li>
+            </ul>
 
-            </li>
-        </ul>
+            <ul class="navbar-nav nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-secondary" id="logout-button"> Logout </button>
+                </li>
+            </ul>
+
+        </div>
+
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-6 spy-top-padding" id="scrollspyHeading1">
                 <div class="card">
@@ -83,23 +95,25 @@
 
                         </form>
 
+                        <div class="table-responsive">
+                            <table class="table top-buffer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th>Check in</th>
+                                        <th>Check out</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="entryDisplay">
+                                    <tr>
+                                        <td colspan="5">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <table class="table top-buffer">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Check in</th>
-                                    <th>Check out</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="entryDisplay">
-                                <tr>
-                                    <td colspan="5">Loading...</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
 
                 </div>
@@ -118,7 +132,7 @@
                             <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="identifier">Project Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="identifier" id="identifier" required>
+                                    <input class="form-control" type="text" name="identifier" id="identifier" required>
                                 </div>
                             </div>
                             <div class="input-group row top-buffer">
@@ -128,21 +142,25 @@
                             </div>
                         </form>
 
-                        <table class="table top-buffer">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Project Name</th>
-                                    <th></th>
-                                </tr>
+                        <div class="table-responsive">
+                            <table class="table top-buffer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Project Name</th>
+                                        <th></th>
+                                    </tr>
 
-                            </thead>
-                            <tbody id="projectDisplay">
-                                <tr>
-                                    <td colspan="2">Loading...</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody id="projectDisplay">
+                                    <tr>
+                                        <td colspan="2">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
 
                     </div>
 
@@ -192,23 +210,25 @@
 
                         </form>
 
+                        <div class="table-responsive">
+                            <table class="table top-buffer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Project</th>
+                                        <th>User</th>
+                                        <th>Workload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rapportDisplay">
+                                    <tr>
+                                        <td colspan="4">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <table class="table top-buffer">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Project</th>
-                                    <th>User</th>
-                                    <th>Workload</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="rapportDisplay">
-                                <tr>
-                                    <td colspan="4">Loading...</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
 
                 </div>

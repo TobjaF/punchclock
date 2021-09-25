@@ -113,42 +113,49 @@ const testuser = {
     "password": "password"
 }
 
-const fillsampledata = () => {
-    users.push({
-        "id": users.length + 1,
-        "username": "max",
-        "password": "muster"
-    });
+const fillsampledata = (n) => {
+    for (let index = 0; index < n; index++) {
 
-    projects.push({
-        "id": projects.length + 1,
-        "identifier": "devops"
-    });
-
-    entries.push({
-        "id": entries.length + 1,
-        "checkIn": "2021-09-07T09:16:00",
-        "checkOut": "2021-09-17T12:13:00",
-        "user": {
-            "id": 1,
+        users.push({
+            "id": users.length + 1,
             "username": "max",
             "password": "muster"
-        }
-    });
+        });
 
-    rapports.push({
-        "id": rapports.length + 1,
-        "workload": "3",
-        "user": {
-            "id": 1,
-            "username": "max",
-            "password": "muster"
-        },
-        "project": {
-            "id": "1",
+        projects.push({
+            "id": projects.length + 1,
             "identifier": "devops"
-        }
-    });
+        });
+
+        entries.push({
+            "id": entries.length + 1,
+            "checkIn": "2021-09-07T09:16:00",
+            "checkOut": "2021-09-17T12:13:00",
+            "user": {
+                "id": 1,
+                "username": "max",
+                "password": "muster"
+            }
+        });
+
+        rapports.push({
+            "id": rapports.length + 1,
+            "workload": "3",
+            "user": {
+                "id": 1,
+                "username": "max",
+                "password": "muster"
+            },
+            "project": {
+                "id": "1",
+                "identifier": "devops"
+            }
+        });
+
+
+
+
+    }
 
     populateProjectsDropdown();
     populateUserDropdown();
@@ -615,9 +622,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     if (location.port === '5500') {
-        for (let index = 0; index < 10; index++) {
-            //fillsampledata();
-        }
+        //fillsampledata(10);
 
     }
 
