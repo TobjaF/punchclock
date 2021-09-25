@@ -113,7 +113,7 @@ const testuser = {
     "password": "password"
 }
 
-const fillsampledata = (n) => {
+const fillsampledata = (n = 5) => {
     for (let index = 0; index < n; index++) {
 
         users.push({
