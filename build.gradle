@@ -30,5 +30,6 @@ dependencies {
 	implementation 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	compile 'org.springframework.session:spring-session-jdbc'
 	compile("com.auth0:java-jwt:3.4.0")
 }

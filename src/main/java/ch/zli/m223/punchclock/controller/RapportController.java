@@ -6,7 +6,10 @@ import ch.zli.m223.punchclock.service.RapportService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,13 +23,16 @@ public class RapportController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Rapport> getAllRapports() {
+    public List<Rapport> getAllRapports(Rapport rapport, HttpSession session) {
+        session.getAttribute("FIRST_SESSION_TEST");
         return rapportService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Rapport createRapport(@Valid @RequestBody Rapport rapport) {
+    public Rapport createRapport(@Valid @RequestBody Rapport rapport, HttpServletRequest request) {
+        request.getSession().getAttribute("FIRST_SESSION_TEST");
+        request.getSession().setAttribute("FIRST_SESSION_TEST", rapport);
         return rapportService.createRapport(rapport);
     }
 

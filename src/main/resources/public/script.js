@@ -571,7 +571,7 @@ window.onclick = resetTimer;
 window.onkeypress = resetTimer;
 
 function showSessionTimeoutMsg() {
-    logout();
+  //  logout();
     alert("your session has been expired");
 }
 function startIdleTimer() {
@@ -584,7 +584,7 @@ function startIdleTimer() {
         to the new value */
     document.querySelector(".secs")
         .textContent = currSeconds;
-    showSessionTimeoutMsg();
+ //  showSessionTimeoutMsg();
 
 }
 
