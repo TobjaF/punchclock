@@ -13,6 +13,8 @@ let currentEntry;
 let currentProject;
 let currentRapport;
 
+//let scrollSpy;
+
 const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
 };
@@ -132,8 +134,8 @@ const testentryresp = {
     "checkOut": "2021-09-17T12:13:00",
     "user": {
         "id": 1,
-        "username": null,
-        "password": null
+        "username": "max",
+        "password": "muster"
     }
 }
 
@@ -141,6 +143,60 @@ const testuser = {
     "username": "testuser",
     "password": "password"
 }
+
+const fillsampledata = (n = 5) => {
+    for (let index = 0; index < n; index++) {
+
+        users.push({
+            "id": users.length + 1,
+            "username": "max",
+            "password": "muster"
+        });
+
+        projects.push({
+            "id": projects.length + 1,
+            "identifier": "devops"
+        });
+
+        entries.push({
+            "id": entries.length + 1,
+            "checkIn": "2021-09-07T09:16:00",
+            "checkOut": "2021-09-17T12:13:00",
+            "user": {
+                "id": 1,
+                "username": "max",
+                "password": "muster"
+            }
+        });
+
+        rapports.push({
+            "id": rapports.length + 1,
+            "workload": "3",
+            "user": {
+                "id": 1,
+                "username": "max",
+                "password": "muster"
+            },
+            "project": {
+                "id": "1",
+                "identifier": "devops"
+            }
+        });
+
+
+
+
+    }
+
+    populateProjectsDropdown();
+    populateUserDropdown();
+    renderProjects();
+    renderEntries();
+    renderRapports();
+
+}
+
+
 
 const deleteEntry = (id) => {
     let headers = getHeaders();
@@ -347,10 +403,12 @@ const createEntryActions = (entry) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteEntry(entry.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editEntry(entry));
     cell.appendChild(editButton);
     return cell;
@@ -361,10 +419,12 @@ const createRapportActions = (rapport) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteRapport(rapport.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editRapport(rapport));
     cell.appendChild(editButton);
     return cell;
@@ -374,10 +434,12 @@ const createProjectActions = (project) => {
     const cell = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.classList = "btn btn-secondary";
     deleteButton.addEventListener('click', () => deleteProject(project.id));
     cell.appendChild(deleteButton);
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
+    editButton.classList = "btn btn-secondary";
     editButton.addEventListener('click', () => editProject(project));
     cell.appendChild(editButton);
     return cell;
@@ -485,6 +547,7 @@ const populateProjectsDropdown = () => {
 
 const createCell = (text) => {
     const cell = document.createElement('td');
+    cell.classList = "align-middle";
     cell.innerText = text;
     return cell;
 };
@@ -501,6 +564,7 @@ const renderEntries = () => {
         row.appendChild(createEntryActions(entry));
         display.appendChild(row);
     });
+    refreshScrollSpy();
 };
 
 
@@ -516,6 +580,7 @@ const renderRapports = () => {
         row.appendChild(createRapportActions(rapport));
         display.appendChild(row);
     });
+    //refreshScrollSpy();
 };
 
 const renderProjects = () => {
@@ -528,9 +593,17 @@ const renderProjects = () => {
         row.appendChild(createProjectActions(project));
         display.appendChild(row);
     });
+    //refreshScrollSpy();
 };
 
-
+const refreshScrollSpy = () => {
+    /* https://getbootstrap.com/docs/5.0/components/scrollspy/ */
+    var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+    dataSpyList.forEach(function (dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl)
+            .refresh()
+    })
+}
 
 const checkAuthorized = () => {
     if (localStorage.getItem('bearer') === null) {
@@ -548,6 +621,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //checkAuthorized();
     //const createEntryForm = document.querySelector('#createEntryForm');
     //createEntryForm.addEventListener('submit', createEntry);
+
+
+    scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar-example2'
+    });
+
 
     const entryForm = document.querySelector('#createEntryForm');
     entryForm.addEventListener('submit', saveEntryForm);
@@ -571,4 +650,62 @@ document.addEventListener('DOMContentLoaded', function () {
     indexUsers();
     populateUserDropdown();
     populateProjectsDropdown();
+
+
+    if (location.port === '5500') {
+        //fillsampledata(10);
+
+    }
+
+
+
+
+
 });
+
+let timer, currSeconds = 0;
+
+function resetTimer() {
+
+    /* Hide the timer text */
+    document.querySelector(".timertext")
+        .style.display = 'none';
+
+    /* Clear the previous interval */
+    clearInterval(timer);
+
+    /* Reset the seconds of the timer */
+    currSeconds = 0;
+
+    /* Set a new interval */
+    timer =
+        setInterval(startIdleTimer, 3000);
+}
+
+// Define the events that
+// would reset the timer
+window.onload = resetTimer;
+window.onmousemove = resetTimer;
+window.onmousedown = resetTimer;
+window.ontouchstart = resetTimer;
+window.onclick = resetTimer;
+window.onkeypress = resetTimer;
+
+function showSessionTimeoutMsg() {
+    //logout();
+    //alert("your session has been expired");
+}
+function startIdleTimer() {
+
+    /* Increment the
+        timer seconds */
+    currSeconds++;
+
+    /* Set the timer text
+        to the new value */
+    document.querySelector(".secs")
+        .textContent = currSeconds;
+    showSessionTimeoutMsg();
+
+}
+
