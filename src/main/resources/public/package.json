@@ -1,0 +1,22 @@
+{
+  "name": "tiny-erp",
+  "version": "1.0.0",
+  "description": "a stripped down tiny erp-system",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "node-sass": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "",
+    "prepublish": "npm run build-css",
+    "build-css": "node-sass scss/ -o css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TobjaF/tiny-erp"
+  },
+  "author": "CFF",
+  "license": "ISC"
+}
