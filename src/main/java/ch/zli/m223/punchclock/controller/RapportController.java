@@ -24,14 +24,14 @@ public class RapportController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Rapport> getAllRapports(Rapport rapport, HttpSession session) {
-        session.getAttribute("FIRST_SESSION_TEST");
+        List mySessions = (List) session.getAttribute("FIRST_SESSION_TEST");
         return rapportService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Rapport createRapport(@Valid @RequestBody Rapport rapport, HttpServletRequest request) {
-        request.getSession().getAttribute("FIRST_SESSION_TEST");
+        List mySessions = (List) request.getSession().getAttribute("FIRST_SESSION_TEST");
         request.getSession().setAttribute("FIRST_SESSION_TEST", rapport);
         return rapportService.createRapport(rapport);
     }
