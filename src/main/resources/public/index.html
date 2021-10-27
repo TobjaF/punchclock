@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tiny ERP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="script.js" type="application/javascript"></script>
-    <link rel="icon" href="pics/Tiny-ERP.png" type="image/png">
+    <link rel="icon" type="image/png" href="pics/Tiny-ERP.png"/>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 
     <nav id="navbar-example2" class="navbar navbar-expand-sm navbar-light bg-light px-3 fixed-top">
         <a class="navbar-brand" href="#">
-            <img class="tiny-erp-logo" src="/pics/Tiny-ERP.png" alt="">
+            <img class="tiny-erp-logo" src="pics/Tiny-ERP.png" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
             <span class="navbar-toggler-icon"></span>
@@ -61,20 +61,20 @@
                             <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-2" for="checkIn">Check in</label>
                                 <div class="col-sm-5">
-                                    <input type="date" name="checkInDate" id="checkIn" class="form-control" required>
+                                    <input type="date" name="checkInDate" id="checkIn" onchange="date_picker_checkIn()" class="form-control" required>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="time" name="checkInTime" class="form-control" required>
+                                    <input type="time" name="checkInTime" id="checkInTime" onclick="time_calculate()" class="form-control" required>
                                 </div>
                             </div>
 
                             <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="checkOut">Check out</label>
                                 <div class="col-sm-4">
-                                    <input type="date" name="checkOutDate" id="checkOut" class="form-control" required>
+                                    <input type="date" name="checkOutDate" id="checkOut" onchange="date_picker_checkOut()" class="form-control" required>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="time" name="checkOutTime" class="form-control" required>
+                                    <input type="time" name="checkOutTime" id="checkOutTime"  class="form-control" required>
                                 </div>
                             </div>
 

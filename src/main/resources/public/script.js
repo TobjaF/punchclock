@@ -28,6 +28,20 @@ function date_picker_checkOut() {
 }
 
 function time_calculate() {
+    //let timeStart = document.getElementById("checkInTime").value;
+    //let timeEnd = document.getElementById("checkOutTime").value;
+    //timeEnd.setAttribute("min",timeStart);
+
+    let timeEnd = document.getElementById("checkInTime").onchange = function ()
+    {
+        var input = document.getElementById("checkOutTime");
+        input.min = this.value;
+    }
+
+    //let timeControl = document.querySelector('input[id = "checkOutTime"]');
+    //timeControl.value = timeStart;
+
+    console.log(timeEnd);
 
 }
 /*

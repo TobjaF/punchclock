@@ -39,6 +39,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter imple
                 .antMatchers("/**/*.html").permitAll()
                 .antMatchers("/**/*.css").permitAll()
                 .antMatchers("/**/*.js").permitAll()
+                .antMatchers("/**/*.png").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
