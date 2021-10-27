@@ -1,0 +1,70 @@
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "custom-variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+input, select {
+    display: block;
+    width: 20rem;
+    box-sizing: border-box;
+}
+
+.card {
+    max-width: 700px;
+    margin: auto;
+
+}
+
+.spy-top-padding{
+    padding-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type='submit'] {
+    margin-top: 1rem;
+}
+
+form .btn {
+    max-width: 50%;
+}
+
+body {
+    /*position relative F├╝r Bootstrap Scrollspy*/
+    position: relative;
+    margin-bottom: 400px;
+  }
+
+  .top-buffer { margin-top:10px; }
+
+table button {
+    margin: 5px;
+
+}
+
+.tiny-erp-logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+.tiny-erp-login {
+    height: 70vh;
+    width: 70vh;
+    border-radius: 100%;
+}
+
+td {
+    vertical-align: middle;
+}

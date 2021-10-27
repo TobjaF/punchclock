@@ -38,6 +38,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter imple
                 .antMatchers(HttpMethod.GET, "/").permitAll()
                 .antMatchers("/**/*.html").permitAll()
                 .antMatchers("/**/*.css").permitAll()
+                .antMatchers("/**/*.png").permitAll()
                 .antMatchers("/**/*.js").permitAll()
                 .antMatchers("/**/*.png").permitAll()
                 .anyRequest().authenticated()
