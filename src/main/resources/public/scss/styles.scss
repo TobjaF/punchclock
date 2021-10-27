@@ -13,6 +13,11 @@
 
 
 
+.tiny-erp-login-logo{
+    width: 50vw;
+    height: 50vw
+
+}
 
 input, select {
     display: block;
@@ -20,10 +25,11 @@ input, select {
     box-sizing: border-box;
 }
 
-.card {
+.card{
     max-width: 700px;
+}
+.cardcustom{
     margin: auto;
-
 }
 
 .spy-top-padding{
@@ -38,6 +44,10 @@ input[type='submit'] {
 
 form .btn {
     max-width: 50%;
+}
+
+.logincont{
+height: 100vh;
 }
 
 body {
