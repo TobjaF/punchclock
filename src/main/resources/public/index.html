@@ -61,20 +61,20 @@
                             <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-2" for="checkIn">Check in</label>
                                 <div class="col-sm-5">
-                                    <input type="date" name="checkInDate" id="checkIn" class="form-control" required>
+                                    <input type="date" name="checkInDate" id="checkIn" onchange="date_picker_checkIn()" class="form-control" required>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="time" name="checkInTime" class="form-control" required>
+                                    <input type="time" name="checkInTime" id="checkInTime" onclick="time_calculate()" class="form-control" required>
                                 </div>
                             </div>
 
                             <div class="input-group row top-buffer">
                                 <label class="col-form-label col-sm-3" for="checkOut">Check out</label>
                                 <div class="col-sm-4">
-                                    <input type="date" name="checkOutDate" id="checkOut" class="form-control" required>
+                                    <input type="date" name="checkOutDate" id="checkOut" onchange="date_picker_checkOut()" class="form-control" required>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input type="time" name="checkOutTime" class="form-control" required>
+                                    <input type="time" name="checkOutTime" id="checkOutTime"  class="form-control" required>
                                 </div>
                             </div>
 
