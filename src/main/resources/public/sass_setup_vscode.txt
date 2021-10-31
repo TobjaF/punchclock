@@ -1,0 +1,5 @@
+https://onedebos.wordpress.com/2019/08/01/how-to-setup-sass-in-vscode/
+
+
+Sass kompilieren über npm?
+https://mishkaorakzai.medium.com/how-to-add-and-compile-scss-to-run-automatically-in-the-background-on-an-existing-node-js-project-f0172141ae47

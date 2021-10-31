@@ -7,15 +7,39 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Punchclock Client</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <script src="login.js" type="application/javascript"></script>
 </head>
 
 <body>
+    <div class="logincont d-flex flex-column align-items-center justify-content-evenly">
+        <div>
+            <img src="/pics/tiny-ERP-2.png" class="img-fluid mx-auto tiny-erp-login-logo" alt="" srcset="">
 
-    <!--img class="tiny-erp-login" src="/pics/Tiny-ERP.png" alt=""-->
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1 class="mb-3"> Signup & Login </h1>
+            </div>
+            <div class="card-footer">
+                <form id="signupLoginform" class="container">
+                    <div class="form-group">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="username" id="uname"
+                            required>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                            id="psw" required>
+                        <input class=" btn btn-primary" type="submit" value="Signup" />
+                        <input class=" btn btn-primary" type="submit" value="Login" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <h1> Signup / Login </h1>
+    <!-- 
+        <h1> Signup / Login </h1>
     <form id="signupform">
         <fieldset>
             <legend>
@@ -42,6 +66,7 @@
             <input type="submit" value="Login" />
         </fieldset>
     </form>
+-->
 
 </body>
 
