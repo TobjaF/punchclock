@@ -16,7 +16,13 @@ let currentRapport;
 //let scrollSpy;
 
 const dateAndTimeToDate = (dateString, timeString) => {
-    return new Date(`${dateString}T${timeString}`).toISOString();
+    // return new Date(`${dateString}T${timeString}`).toISOString().slice(0,10);
+    // var x = (new Date(`${dateString}T${timeString}`)).getTimezoneOffset() * 60000;
+    // var localISOTime = (new Date(Date.now() - x)).toISOString().slice(0,-1);
+    // return localISOTime;
+    var date = new Date(`${dateString}T${timeString}`); // Or the date you'd like converted.
+    var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
+    return isoDateTime;
 };
 
 function date_picker_checkIn() {
