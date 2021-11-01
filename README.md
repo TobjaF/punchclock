@@ -1,5 +1,18 @@
-# M223: Punchclock
-Dies ist eine Beispielapplikation für das Modul M223.
+# Tiny-Erp
+In dieser Beispielapplikation wurden folgende Konzepte erkundet:
+- Webapplikation
+- Authorisierung/Authentifizierung
+- Multi-User-Applikation
+- Rest-Schnittstelle
+- Session Handling
+- Responsives UI-Design mit einem Web-Frontend-Framework
+- Object-Relational-Mapping (ORM)
+
+Folgende Technologien werden im Projekt verwendet
+- Java Springboot
+- Json Web Token (JWT)
+- Bootstrap
+- HTML / Javascript / SCSS
 
 ## Loslegen
 Folgende Schritte befolgen um loszulegen:
